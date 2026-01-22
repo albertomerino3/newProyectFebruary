@@ -1,0 +1,44 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package alquilervehiculos;
+
+/**
+ *
+ * @author alberto
+ */
+public class Alquiler {
+    private String fechaInicio;
+    private String fechaFin;
+    private Array vehiculos;
+    
+    public Alquiler (String fechaInicio, String fechaFin){
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.vehiculos = new Array();
+    }
+    
+    public void añadirVehiculo(Vehiculo v){
+        vehiculos.add(v);
+    }
+    
+    public Vehiculo consultarVehiculo(String matricula){
+        for (Vehiculo v : vehiculos){
+            if (v:getMatricula().equals(matricula)){
+                return v;
+            }
+        }
+        return null;
+    }
+    
+    public boolean alquilerVehiculo(Strin matricula){
+        Vehiculo v = consultarVehiculo(matricula);
+        
+        if (v != null && v.isDisponible()){
+            v.setDisponible(false);
+            return true;
+        }
+        return false; 
+    }
+}
