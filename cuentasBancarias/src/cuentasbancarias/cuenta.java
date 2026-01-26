@@ -4,14 +4,13 @@
  * and open the template in the editor.
  */
 package cuentasbancarias;
-import.cliente.java;
 
 /**
  *
  * @author EAG
  */
 public class cuenta {
-    int num_iden;
-    double saldo_dispo;
-    Cliente duenioCuenta;
+    private int num_iden;
+    private double saldo_dispo;
+    private cliente cliente;
 }

@@ -10,5 +10,5 @@ package cuentasbancarias;
  * @author EAG
  */
 public class cliente {
-    
+    private Cuenta[] Cuenta;
 }
