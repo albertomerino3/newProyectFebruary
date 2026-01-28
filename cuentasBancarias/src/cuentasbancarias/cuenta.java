@@ -9,39 +9,39 @@ package cuentasbancarias;
  *
  * @author EAG
  */
-public class cuenta {
+public class Cuenta {
     
     //atributos
     
     private int num_iden;
     private double saldo;
-    private cliente cliente;
+    private Cliente cliente;
     
     //constructores por defecto
     
-    public cuenta(){
-        this.num_iden = ;
-        this.saldo = 0;
+    public Cuenta(){
+        this.num_iden = 0;
+        this.saldo = 0; // lo pide el enunciado
         this.cliente = null; //cuando se crea cliente no tiene cuenta
         
     }
     
     //constructor por parámetros
-    public cuenta(int num_inden, double saldo, cliente cliente){
+    public Cuenta(int num_iden, double saldo, Cliente cliente){
         this.num_iden = num_iden;
         this.saldo = saldo;
         this.cliente = cliente;
     }
     
     //constructor de copia
-    public cuenta(cuenta cuentaACopiar){
+    public Cuenta(Cuenta cuentaACopiar){
         this.num_iden = cuentaACopiar.num_iden;
         this.saldo = cuentaACopiar.saldo;
         
         //para copiar cliente, comprobamos que su valor no sea nulo
         //antes de copiarlo
         if (cuentaACopiar.cliente != null){
-            this.cliente = new cliente(cuentaACopiar.cliente);
+            this.cliente = new Cliente(cuentaACopiar.cliente);
         }
         else{
             this.cliente = null;
@@ -58,7 +58,7 @@ public class cuenta {
         return this.saldo;
     }
     
-    public cliente getCliente(){
+    public Cliente getCliente(){
         return this.cliente;
     }
     
@@ -72,8 +72,33 @@ public class cuenta {
         this.saldo = saldo;
     }
     
-    public void setCliente(cliente cliente){
+    public void setCliente(Cliente cliente){
         this.cliente = cliente;
     }
-    //metodos
+    
+    //metodos personalizados 
+    
+    public void ingresarDinero(double dineroIngresado, double saldo){
+        saldo += dineroIngresado;
+    }
+    
+    public void retirarDinero (double dineroRetirado, double saldo){
+        if(saldo > dineroRetirado){
+            saldo -= dineroRetirado;
+        } else{
+            System.out.println("No tienes suficiente saldo para retirar el dinero :(");
+        }
+    }
+    
+    // metodo de consultarSaldo se haría con el toString
+    
+    @Override
+    public String toString(){
+        String cadena = "Numero identificativo :" + this.num_iden +
+                "\n Saldo Actual :" + this.saldo;
+        // quitamos Cliente this.cliente para que no haya un bucle infinito
+        //de llamadas recursivas
+        return cadena;
+    }
+    
 }

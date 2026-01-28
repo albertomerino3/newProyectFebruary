@@ -9,7 +9,7 @@ package cuentasbancarias;
  *
  * @author EAG
  */
-public class CuentasBancarias {
+public class mainBanco {
 
     /**
      * @param args the command line arguments
