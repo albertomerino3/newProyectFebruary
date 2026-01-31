@@ -100,5 +100,4 @@ public class Cuenta {
         //de llamadas recursivas
         return cadena;
     }
-    
 }

@@ -9,14 +9,33 @@ package alquilervehiculos;
  * @author alberto
  */
 public class Alquiler {
+    //atributos
     private String fechaInicio;
     private String fechaFin;
-    private Array vehiculos;
+    private Vehiculo[] vehiculos;
     
-    public Alquiler (String fechaInicio, String fechaFin){
+    //constructor
+    public Alquiler(){
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-        this.vehiculos = new Array();
+        this.vehiculos = new Vehiculo[0];
+    }
+    
+    public Alquiler (String fechaInicio, String fechaFin, Vehiculo[] vehiculos){
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.vehiculos = vehiculos.clone();
+    }
+    
+    public Alquiler(Alquiler a){
+        this.fechaInicio = a.fechaInicio;
+        this.fechaFin = a.fechaFin;
+        this.vehiculos = a.vehiculos;
+    }
+    
+    //getters
+    public Vehiculo[] getAlquiler(){
+        return this.vehiculos;
     }
     
     public void añadirVehiculo(Vehiculo v){

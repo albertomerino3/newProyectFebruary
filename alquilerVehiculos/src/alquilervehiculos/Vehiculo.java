@@ -20,22 +20,50 @@ public class Vehiculo {
     
     //constructor
     //metodo que se ejecuta al crear objeto
-    public Vehiculo(String matricula, String marca, String modelo){
-        this.matricula = matricula; //atributo del objeto = valor que le llega al constructor
-        this.marca = marca;
-        this.modelo = modelo;
+    public Vehiculo(){
+        this.matricula = "";
+        this.marca = "";
+        this.modelo = "";
         this.disponible = true; //por defecto está disponible, tiene sentido al dar de alta un coche, que no esté alquilado todavía
     }
     
+    public Vehiculo(String matricula, String marca, String modelo, boolean disponible){
+        this.matricula = matricula; //atributo del objeto = valor que le llega al constructor
+        this.marca = marca;
+        this.modelo = modelo;
+        this.disponible = disponible; 
+    }
+    
+    public Vehiculo(Vehiculo v){
+        this.matricula = v.matricula;
+        this.marca = v.marca;
+        this.modelo = v.modelo;
+        this.disponible = v.disponible;
+    }
     // getters y setters
     public String getMatricula(){   //permite leer un dato privado desde fuera
         return matricula;
+    }
+    public String getMarca(){
+        return marca;
+    }
+    public String getModelo(){
+        return modelo;
     }
     
     public boolean isDisponible() { //al ser boolean se usa is en vez de get
         return disponible;
     }
     
+    public void setMatricula(String matricula){
+        this.matricula = matricula;
+    }
+    public void setMarca(String marca){
+        this.marca = marca;
+    }
+    public void setModelo(String modelo){
+        this.modelo = modelo;
+    }
     public void setDisponible(boolean disponible){ //para cambiar el estado del vehiculo
         this.disponible = disponible;
     }
