@@ -64,7 +64,12 @@ public class Clientes {
     public String toString(){
         String cadena = "Nombre del cliente: " + this.nombre + "n/"+
                 "Documento de Identidad: " + this.doc_iden + "n/" +
-                "Reservas: " + this.reservas;
+                "Reservas: " + "\n";
+        
+        for (int i = 0; i<this.reservas.length; i++){
+            cadena += this.reservas[i].toString()+"\n";
+        }
+        return cadena;
     }
     
 }

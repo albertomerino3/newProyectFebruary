@@ -80,11 +80,14 @@ public class Cuenta {
     
     public void ingresarDinero(double dineroIngresado, double saldo){
         saldo += dineroIngresado;
+        System.out.println("Has ingresado: " + dineroIngresado + "euros.");
+        System.out.println("Ahora tienes: " +saldo+ "euros.");
     }
     
     public void retirarDinero (double dineroRetirado, double saldo){
         if(saldo > dineroRetirado){
             saldo -= dineroRetirado;
+            System.out.println("Has retirado " +dineroRetirado+ "euros de tu cuenta.");
         } else{
             System.out.println("No tienes suficiente saldo para retirar el dinero :(");
         }
