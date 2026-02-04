@@ -51,5 +51,13 @@ public class Jugador {
     public void aumentarNivel(){
             this.nivel ++;  //el nivel sube cuando se llame a este método
     }
+    
+    //toString
+    @Override
+    public String toString(){
+        String cadena = "Nombre del Jugador: " + this.nombre + "\n" +
+                "Nivel del Jugador: " + this.nivel ;
+        return cadena;
+    }
 
 }
