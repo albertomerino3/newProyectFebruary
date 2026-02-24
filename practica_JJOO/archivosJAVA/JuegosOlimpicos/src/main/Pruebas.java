@@ -16,6 +16,9 @@ public class Pruebas {
     private Participantes[] participantes;
     private String resultado;
     private Medallas[] medallas;
+    private int resultadoMedallas;
+    private TipoDeporte deporteAsociado;
+    private boolean resultadoRegistrado;
     
     //constructor x defecto
     public Pruebas(){
@@ -24,16 +27,23 @@ public class Pruebas {
         this.participantes = new Participantes[0];
         this.resultado = "";
         this.medallas = new Medallas[0];
+        this.resultadoMedallas = 0;
+        this.deporteAsociado = null;
+        this.resultadoRegistrado = false;
     }
     
     //constructor x parámetros
     public Pruebas (String nombre, String fecha_celebracion, Participantes[] participantes,
-            String resultado, Medallas[] medallas){
+            String resultado, Medallas[] medallas, int resultadoMedallas, TipoDeporte deporteAsociado,
+            boolean resultadoRegistrado){
         this.nombre = nombre;
         this.fecha_celebracion = fecha_celebracion;
         this.participantes = participantes;
         this.resultado = resultado;
         this.medallas = medallas;
+        this.resultadoMedallas = resultadoMedallas;
+        this.deporteAsociado = deporteAsociado;
+        this.resultadoRegistrado = resultadoRegistrado;
     }
     
     //constructor de copia
@@ -43,6 +53,95 @@ public class Pruebas {
         this.participantes = p.participantes;
         this.resultado = p.resultado;
         this.medallas = p.medallas;
+        this.resultadoMedallas = p.resultadoMedallas;
+        this.deporteAsociado = p.deporteAsociado;
+        this.resultadoRegistrado = p.resultadoRegistrado;
     }
+    
+    //getters
+    public String getNombre(){
+        return this.nombre;
+    }
+    public String getFecha_celebracion(){
+        return this.fecha_celebracion;
+    }
+    public Participantes[] getParticipantes(){
+        return this.participantes;
+    }
+    public String getResultado(){
+        return this.resultado;
+    }
+    public Medallas[] getMedallas(){
+        return this.medallas;
+    }
+    public TipoDeporte getDeporteAsociado(){
+        return this.deporteAsociado;
+    }
+    public boolean getResultadoRegistrado(){
+        return this.resultadoRegistrado;
+    }
+    
+    //setters
+    public void setNombre(String nombre){
+        this.nombre = nombre;
+    }
+    public void setFecha_celebracion(String fecha_celebracion){
+        this.fecha_celebracion = fecha_celebracion;
+    }
+    public void setParticipantes(Participantes[] participantes){
+        this.participantes = participantes;
+    }
+    public void setResultado(String resultado){
+        this.resultado = resultado;
+    }
+    public void setMedallas(Medallas[] medallas){
+        this.medallas = medallas;
+    }
+    public void setDeporteAsociado(TipoDeporte deporteAsociado){
+        this.deporteAsociado = deporteAsociado;
+    }
+    public void setResultadoRegistrado(boolean resultadoRegistrado){
+        this.resultadoRegistrado = resultadoRegistrado;
+    }
+    
+    //metodos
+    
+    public void registrarParticipantes(Participantes p){
+        //no superar el maximo de participantes x deporte
+        if(participantes >= deporteAsociado.getMax_part()){
+            System.out.println("ERROR DEPORTE COMPLETO - Se ha alcanzado el Máximo de Participantes.");
+            return;
+        }        
+        
+        //no puede inscribirse 2 veces
+        if(participantes.contains(p)){
+            System.out.println("ERROR DUPLICADO - El participate ya está inscrito");
+            return;
+        }
+    }
+    
+    public void registrarResultados(String detalleResultado){
+        this.resultado = detalleResultado;
+        System.out.println("Resultado Registrado : " + detalleResultado);
+    }
+    
+    //no hay medalla si no hay resultadoRegistrado
+    public void asignarMedallas(Participantes oro, Participantes plata, Participantes bronce){
+        if(!resultadoRegistrado){
+            System.out.println("ERROR REGISRO - Para asignar una medalla debes tener un resultado asignado");
+            return;
+        }
+        
+        //creamos objetos MEDALLA (CONSTRUCTOR DE MEDALLAS -> Medallas(tipo, participante))
+        this.medallas = new Medallas[3];
+        this.medallas[0] = new Medallas("Oro", oro);
+        this.medallas[1] = new Medallas("Plata", plata);
+        this.medallas[2] = new Medallas("Bronce", bronce);
+        
+        //contador de medallas x participante
+        oro.setNum_medallas(oro.getNum_medallas() +1);
+        plata.setNum_medallas(plata.getNum_medallas() +1);
+    }
+    
     
 }

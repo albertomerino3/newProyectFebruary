@@ -12,20 +12,20 @@ package main;
 public class Deporte {
     //atributos
     private String nombre;
-    private String tipo;
+    private TipoDeporte tipo;
     private int max_part;
     private Pruebas[] conjunto_pruebas;
     
     //constructor x defecto
     public Deporte(){
         this.nombre = "";
-        this.tipo = "";
+        this.tipo = null;
         this.max_part = 0;
         this.conjunto_pruebas = new Pruebas[0];
     }
     
     //constructor x parámetros
-    public Deporte(String nombre, String tipo, int max_part, Pruebas[] conjunto_pruebas){
+    public Deporte(String nombre, TipoDeporte tipo, int max_part, Pruebas[] conjunto_pruebas){
         this.nombre = nombre;
         this.tipo = tipo;
         this.max_part = max_part;
@@ -44,7 +44,7 @@ public class Deporte {
     public String getNombre(){
         return this.nombre;
     }
-    public String getTipo(){
+    public TipoDeporte getTipo(){
         return this.tipo;
     }
     public int getMax_part(){
@@ -58,7 +58,7 @@ public class Deporte {
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
-    public void setTipo (String tipo){
+    public void setTipo (TipoDeporte tipo){
         this.tipo = tipo;
     }
     public void setMax_part(int max_part){
@@ -68,5 +68,17 @@ public class Deporte {
         this.conjunto_pruebas = conjunto_pruebas;
     }
     
+    //métodos
+    
+    @Override
+    public String toString(){
+        String cadena = "NOMBRE DEPORTE: " + this.nombre +
+                "\n TIPO: " + this.tipo +
+                "\n MAX_PARTICIPANTES: " + this.max_part +
+                "\n PRUEBAS: " + this.conjunto_pruebas ;
+        
+        return cadena;
+    }
+                
     
 }
