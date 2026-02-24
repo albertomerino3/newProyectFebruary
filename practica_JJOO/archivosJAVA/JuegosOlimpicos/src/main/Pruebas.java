@@ -108,7 +108,7 @@ public class Pruebas {
     
     public void registrarParticipantes(Participantes p){
         //no superar el maximo de participantes x deporte
-        if(participantes >= deporteAsociado.getMax_part()){
+        if(participantes >= deporteAsociado.getClass()){
             System.out.println("ERROR DEPORTE COMPLETO - Se ha alcanzado el Máximo de Participantes.");
             return;
         }        
@@ -140,8 +140,31 @@ public class Pruebas {
         
         //contador de medallas x participante
         oro.setNum_medallas(oro.getNum_medallas() +1);
+        plata.setNum_iden_olimp(resultadoMedallas);
         plata.setNum_medallas(plata.getNum_medallas() +1);
+        bronce.setNum_medallas(resultadoMedallas);
     }
     
+    public void mostrarClasificacion(){
+        System.out.println("CLASIFICACIÓN DE : " + this.nombre);
+        if (this.medallas[0] != null){
+            System.out.println("MEDALLA DE ORO : " + medallas[0].getGanador().getNombre());
+            System.out.println("MEDALLA DE PLATA : " + medallas[1].getGanador().getNombre());
+            System.out.println("MEDALLA DE BRONCE : " + medallas[2].getGanador().getNombre());
+        }
+    }
+    
+    
+    @Override
+
+    public String toString(){
+        String cadena = "NOMBRE DE PARTICIPANTE " + this.nombre +
+                "\n PAÍS : " + this.pais +
+                "\n EDAD: " + this.edad +
+                "\n NUM_IDEN_OLIMP : " + this.num_iden_olimp +
+                "\n MEDALLAS CONSEGUIDAS : " + this.num_medallas;
+        
+        return cadena;
+    }
     
 }

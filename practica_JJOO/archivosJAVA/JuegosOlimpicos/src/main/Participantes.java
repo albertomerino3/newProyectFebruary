@@ -80,5 +80,23 @@ public abstract class Participantes {
     }
     
     //metodos
+    public abstract void mostrarInfo();
+    //con esta función se permite que cada hijo de la clase abstracta
+    //muestre la información
+    
+    public void calcularMedallas(){
+        return this.num_medallas;
+    }
+    
+    @Override
+    public String toString(){
+        String cadena = "NOMBRE DE PARTICIPANTE " + this.nombre +
+                "\n PAÍS : " + this.pais +
+                "\n EDAD: " + this.edad +
+                "\n NUM_IDEN_OLIMP : " + this.num_iden_olimp +
+                "\n MEDALLAS CONSEGUIDAS : " + this.num_medallas;
+        
+        return cadena;
+    }
     
 }
