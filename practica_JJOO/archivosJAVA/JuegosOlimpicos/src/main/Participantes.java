@@ -84,7 +84,7 @@ public abstract class Participantes {
     //con esta función se permite que cada hijo de la clase abstracta
     //muestre la información
     
-    public void calcularMedallas(){
+    public int calcularMedallas(){
         return this.num_medallas;
     }
     

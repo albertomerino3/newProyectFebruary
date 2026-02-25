@@ -9,5 +9,9 @@ package main;
  * @author alberto
  */
 public class TipoDeporte {
+
+    int getMax_part() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

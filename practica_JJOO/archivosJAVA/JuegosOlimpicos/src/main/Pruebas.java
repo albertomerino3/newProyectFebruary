@@ -107,18 +107,32 @@ public class Pruebas {
     //metodos
     
     public void registrarParticipantes(Participantes p){
+        
+        // para saber el límite 
+        int limiteMaximo = this.deporteAsociado.getMax_part();
+        
+        //para saber cuantos participantes hay
+        int participantesInscritos = this.participantes.size();
+        
         //no superar el maximo de participantes x deporte
-        if(participantes >= deporteAsociado.getClass()){
+        if(participantesInscritos >= limiteMaximo){
             System.out.println("ERROR DEPORTE COMPLETO - Se ha alcanzado el Máximo de Participantes.");
             return;
-        }        
-        
-        //no puede inscribirse 2 veces
-        if(participantes.contains(p)){
+            
+            //no puede inscribirse 2 veces
+        } else if (participantes.length){
             System.out.println("ERROR DUPLICADO - El participate ya está inscrito");
             return;
+            
+            //si pasa todas las validaciones, lo registramos
+        } else {
+            this.participantes.add(p);
+            System.out.println("PARTICIPANTE : " + p.getNombre() + " REGISTRADO");
         }
     }
+    
+
+    
     
     public void registrarResultados(String detalleResultado){
         this.resultado = detalleResultado;
@@ -158,13 +172,17 @@ public class Pruebas {
     @Override
 
     public String toString(){
-        String cadena = "NOMBRE DE PARTICIPANTE " + this.nombre +
-                "\n PAÍS : " + this.pais +
-                "\n EDAD: " + this.edad +
-                "\n NUM_IDEN_OLIMP : " + this.num_iden_olimp +
-                "\n MEDALLAS CONSEGUIDAS : " + this.num_medallas;
+        String cadena = "NOMBRE DE LA PRUEBA " + this.nombre +
+                "\n FECHA : " + this.fecha_celebracion +
+                "\n PARTICIPANTES : " + this.participantes +
+                "\n RESULTADO FINAL : " + this.resultado +
+                "\n MEDALLAS ASIGNADAS : " + this.resultadoMedallas +
+                "\n CLASIFICACIÓN FINAL : " + this.;
         
         return cadena;
     }
-    
+
+    private int getMax_part() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

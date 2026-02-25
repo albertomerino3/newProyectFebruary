@@ -9,6 +9,41 @@ package main;
  *
  * @author EAG
  */
-public class Deportista {
+public class Deportista extends Participantes {
+    //atributos
+    private String especialidad;
     
+    //constructor x defecto
+    public Deportista (){
+        especialidad = "";
+    }
+    
+    //constructor x parámetros
+    public Deportista(String especialidad){
+        this.especialidad = especialidad;
+    }
+    
+    //constructor d copia
+    public Deportista(Deportista d){
+        this.especialidad = d.especialidad;
+    }
+    
+    //getter
+    public String getEspecialidad(){
+        return this.especialidad;
+    }
+    public void setEsepecialidad(String especialidad){
+        this.especialidad = especialidad;
+    }
+            
+    @Override
+    public void mostrarInfo() {
+        System.out.println(this.toString());
+
+    }
+    
+    public String toString(){
+        String cadena = "ESPECIALIDAD : " + this.especialidad;
+        return cadena;
+    }
 }
