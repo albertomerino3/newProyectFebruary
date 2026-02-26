@@ -19,8 +19,9 @@ public class Deportista extends Participantes {
     }
     
     //constructor x parámetros
-    public Deportista(String especialidad){
-        this.especialidad = especialidad;
+    public Deportista(String nombre, String pais, int edad, int num_iden_olimp, String especialidad){
+        super(nombre, pais, edad, num_iden_olimp); //envia los datos a participantes
+        this.especialidad = especialidad; //guarda el dato específico aquí
     }
     
     //constructor d copia
@@ -43,7 +44,6 @@ public class Deportista extends Participantes {
     }
     
     public String toString(){
-        String cadena = "ESPECIALIDAD : " + this.especialidad;
-        return cadena;
+        return super.toString() + "ESPECIALIDAD : " +this.especialidad;
     }
 }
