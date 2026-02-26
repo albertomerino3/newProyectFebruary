@@ -8,10 +8,9 @@ package main;
  *
  * @author alberto
  */
-public class TipoDeporte {
-
-    int getMax_part() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+public enum TipoDeporte {
+    INDIVIDUAL, EQUIPO
+    
+        //creamos el enumeration para asignar la lista de opciones posible
     
 }

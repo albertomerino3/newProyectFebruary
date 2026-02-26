@@ -88,6 +88,11 @@ public abstract class Participantes {
         return this.num_medallas;
     }
     
+    //metodo para cuando un participantes gane medalla
+    public void ganarMedalla(){
+        this.num_medallas++;
+    }
+    
     @Override
     public String toString(){
         String cadena = "NOMBRE DE PARTICIPANTE " + this.nombre +

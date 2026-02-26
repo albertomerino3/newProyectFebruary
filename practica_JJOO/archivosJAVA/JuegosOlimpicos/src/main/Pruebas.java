@@ -177,7 +177,7 @@ public class Pruebas {
                 "\n PARTICIPANTES : " + this.participantes +
                 "\n RESULTADO FINAL : " + this.resultado +
                 "\n MEDALLAS ASIGNADAS : " + this.resultadoMedallas +
-                "\n CLASIFICACIÓN FINAL : " + this.;
+                "\n CLASIFICACIÓN FINAL : " + this.resultado;
         
         return cadena;
     }
